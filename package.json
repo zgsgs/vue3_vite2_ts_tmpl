@@ -7,9 +7,10 @@
     "build": "vue-tsc --noEmit && vite build",
     "build:staging": "vue-tsc --noEmit && vite build --mode staging",
     "serve": "vite preview",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s public/mock -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=ea150a332363"
+    "chromatic": "npx chromatic --project-token=ea150a332363",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
     "vue": "^3.2.16"
@@ -19,8 +20,11 @@
     "@storybook/addon-a11y": "^6.3.12",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-console": "^1.2.3",
+    "@storybook/addon-design-assets": "^6.2.9",
     "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-jest": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
+    "@storybook/addon-queryparams": "^6.2.9",
     "@storybook/addon-storysource": "^6.3.12",
     "@storybook/vue3": "^6.3.12",
     "@types/node": "^16.11.6",

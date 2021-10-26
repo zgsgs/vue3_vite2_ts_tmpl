@@ -1,6 +1,6 @@
 import MyButton from './Button.vue'
-import { withDesign } from 'storybook-addon-designs'
 import { rest } from 'msw'
+import { withDesign } from 'storybook-addon-designs'
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
