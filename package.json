@@ -1,31 +1,43 @@
 {
   "name": "vue3_vite2_ts_tmpl",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "build:staging": "vue-tsc --noEmit && vite build --mode staging",
     "serve": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=ea150a332363"
   },
   "dependencies": {
-    "@types/node": "^16.11.4",
     "vue": "^3.2.16"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@storybook/addon-a11y": "^6.3.12",
     "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-console": "^1.2.3",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
+    "@storybook/addon-storysource": "^6.3.12",
     "@storybook/vue3": "^6.3.12",
+    "@types/node": "^16.11.6",
     "@vitejs/plugin-vue": "^1.9.3",
     "@vitejs/plugin-vue-jsx": "^1.2.0",
     "babel-loader": "^8.2.3",
+    "chromatic": "^6.0.4",
+    "msw": "^0.35.0",
+    "msw-storybook-addon": "^1.4.1",
     "path": "^0.12.7",
+    "storybook-addon-designs": "^6.2.0",
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
     "vue-loader": "^16.8.1",
     "vue-tsc": "^0.3.0"
+  },
+  "msw": {
+    "workerDirectory": "public\\mock"
   }
 }

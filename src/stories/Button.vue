@@ -31,7 +31,7 @@ export default {
 
   emits: ['click'],
 
-  setup(props, { emit }) {
+  setup (props, { emit }) {
     props = reactive(props);
     return {
       classes: computed(() => ({
@@ -43,7 +43,7 @@ export default {
       style: computed(() => ({
         backgroundColor: props.backgroundColor,
       })),
-      onClick() {
+      onClick () {
         emit('click');
       }
     }
