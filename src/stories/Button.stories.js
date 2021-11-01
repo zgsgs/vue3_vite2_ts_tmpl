@@ -1,22 +1,54 @@
 import MyButton from './Button.vue'
-import { rest } from 'msw'
 import { withDesign } from 'storybook-addon-designs'
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: 'Example/Button',
   component: MyButton,
-  parameters: { layout: 'centered' },
+  decorators: [withDesign],
+  description: '一个按钮实例',
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: "This is Button's description.",
+      },
+    },
+  },
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: {},
+    backgroundColor: {
+      control: 'color',
+      table: {
+        category: 'Colors',
+      },
+    },
+    primary: {
+      table: {
+        category: 'Colors',
+      },
+      type: { required: true },
+    },
+    label: {
+      table: {
+        category: 'Text',
+        subcategory: 'Label',
+      },
+    },
+    onClick: {
+      table: {
+        category: 'Events',
+      },
+    },
     size: {
       control: { type: 'select' },
       options: ['small', 'medium', 'large'],
+      table: {
+        category: 'Text',
+        subcategory: 'Size',
+      },
     },
   },
-  decorators: [withDesign],
 }
 
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
@@ -28,7 +60,7 @@ const Template = args => ({
     return { args }
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<my-button v-bind="args" />',
+  template: '<MyButton v-bind="args" />',
 })
 
 export const Primary = Template.bind({})
@@ -48,16 +80,6 @@ export const Secondary = Template.bind({})
 Secondary.args = {
   label: 'Button',
 }
-Secondary.msw = [
-  rest.get('/user', (req, res, ctx) => {
-    return res(
-      ctx.json({
-        size: 'large',
-        label: 'Maverick',
-      })
-    )
-  }),
-]
 
 export const Large = Template.bind({})
 Large.args = {

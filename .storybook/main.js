@@ -4,10 +4,9 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     'storybook-addon-designs',
-    '@storybook/addon-storysource',
+    // '@storybook/addon-storysource',
     '@storybook/addon-a11y',
     '@storybook/addon-design-assets',
     '@storybook/addon-jest',
-    "@storybook/addon-queryparams"
   ],
 }

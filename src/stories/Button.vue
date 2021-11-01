@@ -7,23 +7,35 @@ import './button.css';
 import { reactive, computed } from 'vue';
 
 export default {
-  name: 'my-button',
+  name: 'MyButton',
 
   props: {
+    /**
+     * This is label
+     */
     label: {
       type: String,
       required: true,
     },
+    /**
+     * This is primary
+     */
     primary: {
       type: Boolean,
       default: false,
     },
+    /**
+     * This is size
+     */
     size: {
       type: String,
       validator: function (value) {
         return ['small', 'medium', 'large'].indexOf(value) !== -1;
       },
     },
+    /**
+     * This is backgroundColor
+     */
     backgroundColor: {
       type: String,
     },

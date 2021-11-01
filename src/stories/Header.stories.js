@@ -1,8 +1,10 @@
 import MyHeader from './Header.vue'
+import MyButton from './Button.vue'
 
 export default {
   title: 'Example/Header',
   component: MyHeader,
+  subcomponents: { MyButton },
 }
 
 const Template = args => ({
@@ -14,7 +16,7 @@ const Template = args => ({
     return { ...args }
   },
   // Then, the spread values can be accessed directly in the template
-  template: '<my-header :user="user" />',
+  template: '<MyHeader :user="user" />',
 })
 
 export const LoggedIn = Template.bind({})
