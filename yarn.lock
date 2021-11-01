@@ -1642,23 +1642,6 @@
   "resolved" "https://registry.npmmirror.com/@storybook/addon-measure/download/@storybook/addon-measure-2.0.0.tgz"
   "version" "2.0.0"
 
-"@storybook/addon-queryparams@^6.2.9":
-  "integrity" "sha1-tPaZSJSDWLv/swkQQ46hjJEhoiI="
-  "resolved" "https://registry.npmmirror.com/@storybook/addon-queryparams/download/@storybook/addon-queryparams-6.2.9.tgz"
-  "version" "6.2.9"
-  dependencies:
-    "@storybook/addons" "6.2.9"
-    "@storybook/api" "6.2.9"
-    "@storybook/client-logger" "6.2.9"
-    "@storybook/components" "6.2.9"
-    "@storybook/core-events" "6.2.9"
-    "@storybook/theming" "6.2.9"
-    "core-js" "^3.8.2"
-    "global" "^4.4.0"
-    "qs" "^6.10.0"
-    "regenerator-runtime" "^0.13.7"
-    "ts-dedent" "^2.0.0"
-
 "@storybook/addon-storysource@^6.3.12":
   "integrity" "sha1-sTGLTUeydqGAjoijc022L0vtdHQ="
   "resolved" "https://registry.npmmirror.com/@storybook/addon-storysource/download/@storybook/addon-storysource-6.3.12.tgz"
