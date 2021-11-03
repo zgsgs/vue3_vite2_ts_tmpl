@@ -5,8 +5,13 @@ const state = reactive({
 })
 
 onMounted(async () => {
-  const data = await fetch('https://swapi.dev/api/films/').then(rsp => rsp.json()).catch((err) => { '{}' });
+  // any不推荐使用 临时用法 以后学习到正确做法再改正
+  const [err, data]:any = await fetch('https://swapi.dev/api/films/').then(rsp => [,rsp.json()]).catch((err) => { [err,] });
   console.log(data)
+  if(err){
+    alert(err.toString())
+    return
+  }
   state.films = data?.results || []
 })
 </script>
