@@ -68,7 +68,7 @@ const class2 = computed(() => ({
 
 const style1 = computed(() => ({
   display: 'flex',
-  flexDirection: props.direction,
+  flexDirection: props.direction || 'row',
   flexWrap: props.wrap ? 'wrap' : 'nowrap',
   justifyContent: props.justify,
   alignItems: props.algin,

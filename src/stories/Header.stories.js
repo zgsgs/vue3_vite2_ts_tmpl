@@ -1,5 +1,5 @@
-import MyHeader from './Header.vue'
-import MyButton from './Button.vue'
+import MyHeader from './example/Header.vue'
+import MyButton from './example/Button.vue'
 
 export default {
   title: 'Example/Header',

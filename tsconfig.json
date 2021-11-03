@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
+    "outDir": "./",
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": false,
+    "strict": true,
     "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
     "importHelpers": true,
     "experimentalDecorators": true,
     "strictFunctionTypes": false,
@@ -29,5 +32,5 @@
     "typeRoots": ["./node_modules/@types/", "./types"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types/*.d.ts", "mock/*.ts", "vite.config.ts"],
-  "exclude": ["node_modules", "dist", "**/*.js"]
+  "exclude": ["node_modules", "dist", "**/*.js", "public"]
 }

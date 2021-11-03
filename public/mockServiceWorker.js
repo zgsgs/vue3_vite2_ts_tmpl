@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
 
@@ -69,7 +70,7 @@ self.addEventListener('message', async function (event) {
     case 'CLIENT_CLOSED': {
       activeClientIds.delete(clientId)
 
-      const remainingClients = allClients.filter((client) => {
+      const remainingClients = allClients.filter(client => {
         return client.id !== clientId
       })
 
@@ -97,11 +98,11 @@ async function resolveMasterClient(event) {
   const allClients = await self.clients.matchAll()
 
   return allClients
-    .filter((client) => {
+    .filter(client => {
       // Get only those clients that are currently visible.
       return client.visibilityState === 'visible'
     })
-    .find((client) => {
+    .find(client => {
       // Find the client ID that's recorded in the
       // set of clients that have registered the worker.
       return activeClientIds.has(client.id)
@@ -126,8 +127,7 @@ async function handleRequest(event, requestId) {
           ok: clonedResponse.ok,
           status: clonedResponse.status,
           statusText: clonedResponse.statusText,
-          body:
-            clonedResponse.body === null ? null : await clonedResponse.text(),
+          body: clonedResponse.body === null ? null : await clonedResponse.text(),
           headers: serializeHeaders(clonedResponse.headers),
           redirected: clonedResponse.redirected,
         },
@@ -197,10 +197,7 @@ async function getResponse(event, client, requestId) {
 
   switch (clientMessage.type) {
     case 'MOCK_SUCCESS': {
-      return delayPromise(
-        () => respondWithMock(clientMessage),
-        clientMessage.payload.delay,
-      )
+      return delayPromise(() => respondWithMock(clientMessage), clientMessage.payload.delay)
     }
 
     case 'MOCK_NOT_FOUND': {
@@ -228,7 +225,7 @@ ${parsedBody.location}
 This exception has been gracefully handled as a 500 response, however, it's strongly recommended to resolve this error, as it indicates a mistake in your code. If you wish to mock an error response, please see this guide: https://mswjs.io/docs/recipes/mocking-error-responses\
 `,
         request.method,
-        request.url,
+        request.url
       )
 
       return respondWithMock(clientMessage)
@@ -268,13 +265,9 @@ self.addEventListener('fetch', function (event) {
   const requestId = uuidv4()
 
   return event.respondWith(
-    handleRequest(event, requestId).catch((error) => {
+    handleRequest(event, requestId).catch(error => {
       if (error.name === 'NetworkError') {
-        console.warn(
-          '[MSW] Successfully emulated a network error for the "%s %s" request.',
-          request.method,
-          request.url,
-        )
+        console.warn('[MSW] Successfully emulated a network error for the "%s %s" request.', request.method, request.url)
         return
       }
 
@@ -284,18 +277,16 @@ self.addEventListener('fetch', function (event) {
 [MSW] Caught an exception from the "%s %s" request (%s). This is probably not a problem with Mock Service Worker. There is likely an additional logging output above.`,
         request.method,
         request.url,
-        `${error.name}: ${error.message}`,
+        `${error.name}: ${error.message}`
       )
-    }),
+    })
   )
 })
 
 function serializeHeaders(headers) {
   const reqHeaders = {}
   headers.forEach((value, name) => {
-    reqHeaders[name] = reqHeaders[name]
-      ? [].concat(reqHeaders[name]).concat(value)
-      : value
+    reqHeaders[name] = reqHeaders[name] ? [].concat(reqHeaders[name]).concat(value) : value
   })
   return reqHeaders
 }
@@ -304,7 +295,7 @@ function sendToClient(client, message) {
   return new Promise((resolve, reject) => {
     const channel = new MessageChannel()
 
-    channel.port1.onmessage = (event) => {
+    channel.port1.onmessage = event => {
       if (event.data && event.data.error) {
         return reject(event.data.error)
       }
@@ -317,7 +308,7 @@ function sendToClient(client, message) {
 }
 
 function delayPromise(cb, duration) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     setTimeout(() => resolve(cb()), duration)
   })
 }

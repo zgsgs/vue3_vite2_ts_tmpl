@@ -1,9 +1,8 @@
-// @ts-ignore
 import { addDecorator } from '@storybook/vue3'
 // @ts-ignore
-import { initializeWorker, mswDecorator } from 'msw-storybook-addon'
+import { initialize, mswDecorator } from 'msw-storybook-addon'
 
-initializeWorker()
+initialize()
 addDecorator(mswDecorator)
 export const globalTypes = {
   darkMode: {

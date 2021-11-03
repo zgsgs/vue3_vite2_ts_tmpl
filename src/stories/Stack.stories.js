@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions'
 import MyStack from '../components/Stack.vue'
 
 export default {
@@ -42,9 +43,7 @@ export default {
       defaultValue: 'medium',
       options: ['small', 'medium', 'large'],
     },
-    onClick: {
-      control: { type: 'function' },
-    },
+    onClick: {},
   },
 }
 const Template = args => ({
@@ -53,6 +52,7 @@ const Template = args => ({
     return { args }
   },
   template: '<MyStack v-bind="args" />',
+  methods: { action: action('onClick') },
 })
 
 export const Horizontal = Template.bind({})

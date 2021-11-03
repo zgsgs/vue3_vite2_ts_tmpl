@@ -7,7 +7,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "build:staging": "vue-tsc --noEmit && vite build --mode staging",
     "serve": "vite preview",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s public -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token=ea150a332363",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.16.0",
     "@storybook/addon-a11y": "^6.3.12",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-console": "^1.2.3",
@@ -29,18 +30,22 @@
     "@types/node": "^16.11.6",
     "@vitejs/plugin-vue": "^1.9.3",
     "@vitejs/plugin-vue-jsx": "^1.2.0",
+    "@vue/babel-preset-jsx": "^1.2.4",
     "babel-loader": "^8.2.3",
     "chromatic": "^6.0.4",
+    "file-loader": "^6.2.0",
     "msw": "^0.35.0",
     "msw-storybook-addon": "^1.4.1",
     "path": "^0.12.7",
+    "sass-loader": "^12.3.0",
     "storybook-addon-designs": "^6.2.0",
+    "storybook-addon-jsx": "^7.3.14",
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
     "vue-loader": "^16.8.1",
     "vue-tsc": "^0.3.0"
   },
   "msw": {
-    "workerDirectory": "public\\mock"
+    "workerDirectory": "public"
   }
 }
