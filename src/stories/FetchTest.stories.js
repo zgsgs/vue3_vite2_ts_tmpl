@@ -2,7 +2,7 @@ import { rest } from 'msw'
 import MyFetchTest from '../components/FetchTest.vue'
 
 export default {
-  title: 'Example/FetchTest',
+  title: 'Components/FetchTest',
   component: MyFetchTest,
 }
 
