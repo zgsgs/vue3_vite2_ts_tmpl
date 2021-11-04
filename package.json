@@ -4,11 +4,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "build:staging": "vue-tsc --noEmit && vite build --mode staging",
     "serve": "vite preview",
     "storybook": "start-storybook -s public -p 6006",
-    "build-storybook": "build-storybook",
+    "build": "vue-tsc --noEmit && vite build",
+    "build:staging": "vue-tsc --noEmit && vite build --mode staging",
+    "build:sb": "build-storybook",
+    "build:sb-doc": "build-storybook --docs",
     "chromatic": "npx chromatic --project-token=ea150a332363",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
   },
@@ -40,6 +41,7 @@
     "sass-loader": "^12.3.0",
     "storybook-addon-designs": "^6.2.0",
     "storybook-addon-jsx": "^7.3.14",
+    "storybook-builder-vite": "^0.1.5",
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
     "vue-loader": "^16.8.1",

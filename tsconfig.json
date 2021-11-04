@@ -28,9 +28,9 @@
       "@build/*": ["build/*"],
       "@types/*": ["types/*"]
     },
-    "types": ["node", "vite/client"],
+    "types": ["vite/client", "node"],
     "typeRoots": ["./node_modules/@types/", "./types"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types/*.d.ts", "mock/*.ts", "vite.config.ts"],
-  "exclude": ["node_modules", "dist", "**/*.js", "public"]
+  "exclude": ["node_modules", "dist", "**/*.js", "public", "**/*.stories.ts"]
 }

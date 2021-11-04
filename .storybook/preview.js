@@ -1,10 +1,37 @@
 import { addDecorator } from '@storybook/vue3'
 // @ts-ignore
 import { initialize, mswDecorator } from 'msw-storybook-addon'
+import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 initialize()
 addDecorator(mswDecorator)
+// 手机机型
+const customViewports = {
+  pixel2: {
+    name: 'Pixel 2',
+    styles: {
+      width: '411px',
+      height: '731px',
+    },
+  },
+  iphone5: {
+    name: 'iPhone 5/SE',
+    styles: {
+      width: '320px',
+      height: '568px',
+    },
+  },
+  iphone678: {
+    name: 'iPhone 6/7/8',
+    styles: {
+      width: '375px',
+      height: '667px',
+    },
+  },
+}
+// 全局类型
 export const globalTypes = {
+  // 主题模式
   darkMode: {
     name: 'Dark Mode',
     description: '主题模式',
@@ -18,6 +45,7 @@ export const globalTypes = {
       showName: false,
     },
   },
+  // 国际化
   locale: {
     name: 'Locale',
     description: '本地国际化',
@@ -31,8 +59,10 @@ export const globalTypes = {
     },
   },
 }
+// 装饰器 执行逻辑
 export const decorators = [
   (story, context) => {
+    // 主题
     const darkModeColor = {
       default: 'auto',
       dark: '#333333',
@@ -43,19 +73,26 @@ export const decorators = [
     }
   },
   (story, context) => {
+    // 国际化
     return {
       component: { story },
       template: `<story class="${context.globals.locale}" />`,
     }
   },
 ]
-
+// 参数
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
+    },
+  },
+  viewport: {
+    viewports: {
+      ...MINIMAL_VIEWPORTS,
+      ...customViewports,
     },
   },
   a11y: {
